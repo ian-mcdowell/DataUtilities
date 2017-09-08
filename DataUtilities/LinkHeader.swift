@@ -158,17 +158,10 @@ private func separateBy(_ separator: String) -> (String) -> [String] {
 }
 
 /// Split a string by a separator into two components
-private func split(_ separator: String) -> (String) -> (String, String) {
+private func split(_ separator: Character) -> (String) -> (String, String) {
     return { input in
-        let range = input.range(of: separator, options: NSString.CompareOptions(rawValue: 0), range: nil, locale: nil)
-
-        if let range = range {
-            let lhs = input.substring(to: range.lowerBound)
-            let rhs = input.substring(from: range.upperBound)
-            return (lhs, rhs)
-        }
-
-        return (input, "")
+        let strings = input.split(separator: separator)
+        return (String(strings.first!), String(strings.last!))
     }
 }
 
@@ -186,7 +179,7 @@ private func takeFirst(_ input: [String]) -> (String, ArraySlice<String>) {
 private func trim(_ lhs: Character, _ rhs: Character) -> (String) -> String {
     return { input in
         if input.hasPrefix("\(lhs)") && input.hasSuffix("\(rhs)") {
-            return input[input.characters.index(after: input.startIndex)..<input.characters.index(before: input.endIndex)]
+            return String(input[input.characters.index(after: input.startIndex)..<input.characters.index(before: input.endIndex)])
         }
 
         return input

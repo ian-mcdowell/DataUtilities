@@ -17,7 +17,7 @@ public class Async {
     /// - Parameters:
     ///   - methods: a list of blocks to call in order
     ///   - then: the block that is called at the end.
-    public class func series(_ methods: @escaping AsyncMethod..., then: @escaping () -> Void) {
+    public class func series(_ methods: AsyncMethod..., then: @escaping () -> Void) {
 
         let thread = Thread.current
 
@@ -57,7 +57,7 @@ public class Async {
     /// - Parameters:
     ///   - methods: a list of blocks to call in order
     ///   - then: the block that is called at the end.
-    public class func failableSeries(_ methods: @escaping FailableAsyncMethod..., then: @escaping (_ error: Error?) -> Void) {
+    public class func failableSeries(_ methods: FailableAsyncMethod..., then: @escaping (_ error: Error?) -> Void) {
 
         let thread = Thread.current
 
