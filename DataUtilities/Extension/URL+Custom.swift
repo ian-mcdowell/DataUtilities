@@ -24,4 +24,10 @@ public extension URL {
 
         return lastModified as? Date
     }
+    
+    public func appending(_ pathComponents: String...) -> URL {
+        return pathComponents.reduce(self, { url, pathComponent -> URL in
+            return url.appendingPathComponent(pathComponent)
+        })
+    }
 }

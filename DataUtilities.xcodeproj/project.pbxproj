@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3C02AFF51FA957260053C191 /* ExtensionLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C02AFF41FA957260053C191 /* ExtensionLoader.swift */; };
+		3C02AFF71FA958080053C191 /* NSError+Custom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C02AFF61FA958080053C191 /* NSError+Custom.swift */; };
 		3C8402831EECADBB009C2910 /* DataUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C8402791EECADBB009C2910 /* DataUtilities.framework */; };
 		3C8402881EECADBB009C2910 /* DataUtilitiesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C8402871EECADBB009C2910 /* DataUtilitiesTests.swift */; };
 		3C8402941EECAF08009C2910 /* OrderedDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C8402931EECAF08009C2910 /* OrderedDictionary.swift */; };
@@ -40,6 +42,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3C02AFF41FA957260053C191 /* ExtensionLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionLoader.swift; sourceTree = "<group>"; };
+		3C02AFF61FA958080053C191 /* NSError+Custom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSError+Custom.swift"; sourceTree = "<group>"; };
 		3C58F3C01EECB6080078FDD8 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = ../Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
 		3C58F3C11EECB6080078FDD8 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = ../Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
 		3C8402791EECADBB009C2910 /* DataUtilities.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DataUtilities.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -125,6 +129,7 @@
 				3C8402991EECAF4C009C2910 /* Errors.swift */,
 				3C84029B1EECAF68009C2910 /* LinkHeader.swift */,
 				3C8402AE1EECAFCF009C2910 /* Platform.swift */,
+				3C02AFF41FA957260053C191 /* ExtensionLoader.swift */,
 				3C84027D1EECADBB009C2910 /* Info.plist */,
 				3CBE313B1F20519D003D0ABD /* Errno.swift */,
 			);
@@ -153,6 +158,7 @@
 				3C8402A21EECAF9E009C2910 /* NSDateFormatter+Custom.swift */,
 				3C8402A31EECAF9E009C2910 /* Date+Custom.swift */,
 				3C8402A41EECAF9E009C2910 /* Dictionary+Custom.swift */,
+				3C02AFF61FA958080053C191 /* NSError+Custom.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -213,7 +219,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0900;
-				LastUpgradeCheck = 0900;
+				LastUpgradeCheck = 0910;
 				ORGANIZATIONNAME = "Ian McDowell";
 				TargetAttributes = {
 					3C8402781EECADBB009C2910 = {
@@ -270,7 +276,9 @@
 				3C8402A61EECAF9E009C2910 /* URL+Custom.swift in Sources */,
 				3C84029A1EECAF4C009C2910 /* Errors.swift in Sources */,
 				3C8402AA1EECAF9E009C2910 /* NSDateFormatter+Custom.swift in Sources */,
+				3C02AFF51FA957260053C191 /* ExtensionLoader.swift in Sources */,
 				3C8402A71EECAF9E009C2910 /* AnyObject+Custom.swift in Sources */,
+				3C02AFF71FA958080053C191 /* NSError+Custom.swift in Sources */,
 				3C8402A81EECAF9E009C2910 /* String+Custom.swift in Sources */,
 				3C8402AB1EECAF9E009C2910 /* Date+Custom.swift in Sources */,
 				3C8402AC1EECAF9E009C2910 /* Dictionary+Custom.swift in Sources */,
@@ -326,6 +334,8 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
@@ -336,7 +346,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -384,6 +394,8 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
@@ -420,7 +432,7 @@
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = A8DZBD3K9C;
@@ -445,7 +457,7 @@
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = A8DZBD3K9C;

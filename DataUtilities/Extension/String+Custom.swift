@@ -19,7 +19,7 @@ public extension String {
 
     /// If the string is empty, returns nil. Otherwise, will be the receiver string.
     public var ifNotEmpty: String? {
-        if self.characters.count == 0 {
+        if self.isEmpty {
             return nil
         }
         return self
