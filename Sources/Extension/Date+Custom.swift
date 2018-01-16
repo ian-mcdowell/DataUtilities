@@ -9,6 +9,13 @@
 import Foundation
 
 extension Date {
+    
+    /// Instantiate a date object from a darwin timespec
+    public init?(timespec: timespec) {
+        let sec = TimeInterval(timespec.tv_sec)
+        if sec <= 0 { return nil }
+        self.init(timeIntervalSince1970: sec)
+    }
 
     /// Does this date take place today?
     public var isToday: Bool {

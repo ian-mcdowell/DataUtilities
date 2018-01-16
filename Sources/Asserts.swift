@@ -17,3 +17,7 @@ public func assertOnMainQueue() {
 public func assertOnQueue(_ queue: DispatchQueue) {
     dispatchPrecondition(condition: .onQueue(queue))
 }
+
+public func assertNotOnQueue(_ queue: DispatchQueue) {
+    dispatchPrecondition(condition: .notOnQueue(queue))
+}
