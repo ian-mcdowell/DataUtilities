@@ -27,6 +27,8 @@
 		3C610A761FF8A95D00863321 /* BonjourBrowser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C610A651FF8A95D00863321 /* BonjourBrowser.swift */; };
 		3C610A771FF8A95D00863321 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C610A661FF8A95D00863321 /* Errors.swift */; };
 		3C610A781FF8A95D00863321 /* OrderedDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C610A671FF8A95D00863321 /* OrderedDictionary.swift */; };
+		3CE0649F200DD56400680549 /* ProductLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE0649E200DD56400680549 /* ProductLoader.swift */; };
+		3CE064A1200DD57E00680549 /* ProductPurchaser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE064A0200DD57E00680549 /* ProductPurchaser.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +65,8 @@
 		3C610A651FF8A95D00863321 /* BonjourBrowser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BonjourBrowser.swift; sourceTree = "<group>"; };
 		3C610A661FF8A95D00863321 /* Errors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		3C610A671FF8A95D00863321 /* OrderedDictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderedDictionary.swift; sourceTree = "<group>"; };
+		3CE0649E200DD56400680549 /* ProductLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductLoader.swift; sourceTree = "<group>"; };
+		3CE064A0200DD57E00680549 /* ProductPurchaser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductPurchaser.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +128,7 @@
 		3C610A551FF8A95D00863321 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				3CE0649D200DD53600680549 /* In-App Purchases */,
 				3C610A561FF8A95D00863321 /* ExtensionLoader.swift */,
 				3C610A571FF8A95D00863321 /* LinkHeader.swift */,
 				3C610A581FF8A95D00863321 /* Extension */,
@@ -151,6 +156,15 @@
 				3C610A601FF8A95D00863321 /* NSError+Custom.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		3CE0649D200DD53600680549 /* In-App Purchases */ = {
+			isa = PBXGroup;
+			children = (
+				3CE0649E200DD56400680549 /* ProductLoader.swift */,
+				3CE064A0200DD57E00680549 /* ProductPurchaser.swift */,
+			);
+			path = "In-App Purchases";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -264,6 +278,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3C610A751FF8A95D00863321 /* Platform.swift in Sources */,
+				3CE064A1200DD57E00680549 /* ProductPurchaser.swift in Sources */,
 				3C610A701FF8A95D00863321 /* Dictionary+Custom.swift in Sources */,
 				3C610A6F1FF8A95D00863321 /* Date+Custom.swift in Sources */,
 				3C610A6A1FF8A95D00863321 /* URL+Custom.swift in Sources */,
@@ -277,6 +292,7 @@
 				3C610A6B1FF8A95D00863321 /* AnyObject+Custom.swift in Sources */,
 				3C610A6D1FF8A95D00863321 /* Array+Custom.swift in Sources */,
 				3C610A681FF8A95D00863321 /* ExtensionLoader.swift in Sources */,
+				3CE0649F200DD56400680549 /* ProductLoader.swift in Sources */,
 				3C610A761FF8A95D00863321 /* BonjourBrowser.swift in Sources */,
 				3C610A721FF8A95D00863321 /* Result.swift in Sources */,
 				3C610A741FF8A95D00863321 /* Async.swift in Sources */,
