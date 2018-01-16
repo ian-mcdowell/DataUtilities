@@ -28,8 +28,8 @@ public extension String {
     public static func pluralized(_ number: Int, _ singular: String, _ plural: String? = nil) -> String {
         if number == 1 {
             return "\(number) " + singular
-        } else if plural != nil {
-            return "\(number) " + plural!
+        } else if let plural = plural {
+            return "\(number) " + plural
         } else {
             return "\(number) " + singular + "s"
         }
