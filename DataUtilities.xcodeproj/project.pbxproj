@@ -27,10 +27,11 @@
 		3C610A761FF8A95D00863321 /* BonjourBrowser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C610A651FF8A95D00863321 /* BonjourBrowser.swift */; };
 		3C610A771FF8A95D00863321 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C610A661FF8A95D00863321 /* Errors.swift */; };
 		3C610A781FF8A95D00863321 /* OrderedDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C610A671FF8A95D00863321 /* OrderedDictionary.swift */; };
-		3CE0649F200DD56400680549 /* ProductLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE0649E200DD56400680549 /* ProductLoader.swift */; };
-		3CE064A1200DD57E00680549 /* ProductPurchaser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE064A0200DD57E00680549 /* ProductPurchaser.swift */; };
 		3C85649020062CEC0058303D /* Bundle+Custom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C85648F20062CEC0058303D /* Bundle+Custom.swift */; };
 		3CC0D4512007126000118AA6 /* Asserts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CC0D4502007126000118AA6 /* Asserts.swift */; };
+		3CE0649F200DD56400680549 /* ProductLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE0649E200DD56400680549 /* ProductLoader.swift */; };
+		3CE064A1200DD57E00680549 /* ProductPurchaser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE064A0200DD57E00680549 /* ProductPurchaser.swift */; };
+		3CE064A8200DE84100680549 /* PurchaseReceipt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE064A7200DE84100680549 /* PurchaseReceipt.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 3C610A3A1FF8A93800863321;
 			remoteInfo = DataUtilities;
+		};
+		3CE064AD200DE8A200680549 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3C610A321FF8A93800863321 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3CE064A9200DE87A00680549;
+			remoteInfo = external;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -67,10 +75,12 @@
 		3C610A651FF8A95D00863321 /* BonjourBrowser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BonjourBrowser.swift; sourceTree = "<group>"; };
 		3C610A661FF8A95D00863321 /* Errors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		3C610A671FF8A95D00863321 /* OrderedDictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderedDictionary.swift; sourceTree = "<group>"; };
-		3CE0649E200DD56400680549 /* ProductLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductLoader.swift; sourceTree = "<group>"; };
-		3CE064A0200DD57E00680549 /* ProductPurchaser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductPurchaser.swift; sourceTree = "<group>"; };
 		3C85648F20062CEC0058303D /* Bundle+Custom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Custom.swift"; sourceTree = "<group>"; };
 		3CC0D4502007126000118AA6 /* Asserts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Asserts.swift; sourceTree = "<group>"; };
+		3CE0649E200DD56400680549 /* ProductLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductLoader.swift; sourceTree = "<group>"; };
+		3CE064A0200DD57E00680549 /* ProductPurchaser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductPurchaser.swift; sourceTree = "<group>"; };
+		3CE064A7200DE84100680549 /* PurchaseReceipt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseReceipt.swift; sourceTree = "<group>"; };
+		3CE064AF200DEF8300680549 /* ibuild_search_paths.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = ibuild_search_paths.xcconfig; path = Submodules/ibuild/ibuild_search_paths.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +105,7 @@
 		3C610A311FF8A93800863321 = {
 			isa = PBXGroup;
 			children = (
+				3CE064AF200DEF8300680549 /* ibuild_search_paths.xcconfig */,
 				3C610A551FF8A95D00863321 /* Sources */,
 				3C610A3D1FF8A93800863321 /* Framework */,
 				3C610A481FF8A93800863321 /* Tests */,
@@ -167,10 +178,19 @@
 		3CE0649D200DD53600680549 /* In-App Purchases */ = {
 			isa = PBXGroup;
 			children = (
+				3CE064A6200DE82C00680549 /* Receipt Validation */,
 				3CE0649E200DD56400680549 /* ProductLoader.swift */,
 				3CE064A0200DD57E00680549 /* ProductPurchaser.swift */,
 			);
 			path = "In-App Purchases";
+			sourceTree = "<group>";
+		};
+		3CE064A6200DE82C00680549 /* Receipt Validation */ = {
+			isa = PBXGroup;
+			children = (
+				3CE064A7200DE84100680549 /* PurchaseReceipt.swift */,
+			);
+			path = "Receipt Validation";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -186,6 +206,23 @@
 		};
 /* End PBXHeadersBuildPhase section */
 
+/* Begin PBXLegacyTarget section */
+		3CE064A9200DE87A00680549 /* external */ = {
+			isa = PBXLegacyTarget;
+			buildArgumentsString = "$(ACTION)";
+			buildConfigurationList = 3CE064AA200DE87A00680549 /* Build configuration list for PBXLegacyTarget "external" */;
+			buildPhases = (
+			);
+			buildToolPath = "$(SRCROOT)/Submodules/ibuild/ibuild";
+			buildWorkingDirectory = "$(SRCROOT)";
+			dependencies = (
+			);
+			name = external;
+			passBuildSettingsInEnvironment = 1;
+			productName = external;
+		};
+/* End PBXLegacyTarget section */
+
 /* Begin PBXNativeTarget section */
 		3C610A3A1FF8A93800863321 /* DataUtilities */ = {
 			isa = PBXNativeTarget;
@@ -199,6 +236,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				3CE064AE200DE8A200680549 /* PBXTargetDependency */,
 			);
 			name = DataUtilities;
 			productName = DataUtilities;
@@ -241,6 +279,9 @@
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
 					};
+					3CE064A9200DE87A00680549 = {
+						CreatedOnToolsVersion = 9.2;
+					};
 				};
 			};
 			buildConfigurationList = 3C610A351FF8A93800863321 /* Build configuration list for PBXProject "DataUtilities" */;
@@ -257,6 +298,7 @@
 			targets = (
 				3C610A3A1FF8A93800863321 /* DataUtilities */,
 				3C610A431FF8A93800863321 /* DataUtilitiesTests */,
+				3CE064A9200DE87A00680549 /* external */,
 			);
 		};
 /* End PBXProject section */
@@ -286,6 +328,7 @@
 				3C85649020062CEC0058303D /* Bundle+Custom.swift in Sources */,
 				3C610A751FF8A95D00863321 /* Platform.swift in Sources */,
 				3CE064A1200DD57E00680549 /* ProductPurchaser.swift in Sources */,
+				3CE064A8200DE84100680549 /* PurchaseReceipt.swift in Sources */,
 				3C610A701FF8A95D00863321 /* Dictionary+Custom.swift in Sources */,
 				3C610A6F1FF8A95D00863321 /* Date+Custom.swift in Sources */,
 				3C610A6A1FF8A95D00863321 /* URL+Custom.swift in Sources */,
@@ -322,6 +365,11 @@
 			isa = PBXTargetDependency;
 			target = 3C610A3A1FF8A93800863321 /* DataUtilities */;
 			targetProxy = 3C610A461FF8A93800863321 /* PBXContainerItemProxy */;
+		};
+		3CE064AE200DE8A200680549 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3CE064A9200DE87A00680549 /* external */;
+			targetProxy = 3CE064AD200DE8A200680549 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -445,6 +493,7 @@
 		};
 		3C610A501FF8A93800863321 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3CE064AF200DEF8300680549 /* ibuild_search_paths.xcconfig */;
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				DEFINES_MODULE = YES;
@@ -457,11 +506,13 @@
 				PRODUCT_BUNDLE_IDENTIFIER = net.ianmcdowell.DataUtilities;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_INCLUDE_PATHS = "$(IBUILD_CURRENT_BUILD_ROOT)/openssl-ios";
 			};
 			name = Debug;
 		};
 		3C610A511FF8A93800863321 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3CE064AF200DEF8300680549 /* ibuild_search_paths.xcconfig */;
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				DEFINES_MODULE = YES;
@@ -474,6 +525,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = net.ianmcdowell.DataUtilities;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_INCLUDE_PATHS = "$(IBUILD_CURRENT_BUILD_ROOT)/openssl-ios";
 			};
 			name = Release;
 		};
@@ -505,6 +557,29 @@
 			};
 			name = Release;
 		};
+		3CE064AB200DE87A00680549 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEBUGGING_SYMBOLS = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		3CE064AC200DE87A00680549 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -531,6 +606,15 @@
 			buildConfigurations = (
 				3C610A531FF8A93800863321 /* Debug */,
 				3C610A541FF8A93800863321 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3CE064AA200DE87A00680549 /* Build configuration list for PBXLegacyTarget "external" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3CE064AB200DE87A00680549 /* Debug */,
+				3CE064AC200DE87A00680549 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
