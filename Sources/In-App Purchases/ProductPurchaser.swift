@@ -9,10 +9,10 @@
 import Foundation
 import StoreKit
 
-public class ProductPurchaser: NSObject, SKPaymentTransactionObserver {
+public class ProductPurchaserBase: NSObject, SKPaymentTransactionObserver {
     
     // Keep a set of purchasers in memory so they don't go out of scope while in use.
-    private static var purchasers = [SKProduct: ProductPurchaser]()
+    private static var purchasers = [SKProduct: ProductPurchaserBase]()
     
     private var paymentQueue: SKPaymentQueue
     
@@ -28,40 +28,19 @@ public class ProductPurchaser: NSObject, SKPaymentTransactionObserver {
     /// - Parameter product: the product to purchase
     public init(product: SKProduct) {
         self.product = product
-        self.paymentQueue = SKPaymentQueue()
+        self.paymentQueue = SKPaymentQueue.default()
         
         super.init()
         
         ProductPurchaser.purchasers[product] = self
     }
     
-    /// Purchases the SKProduct and calls the given callack when finished.
-    ///
-    /// - Parameters:
-    ///   - quantity: How many of this product we want to buy
-    ///   - callback: the completion callback. If no error has passed, the purchase was successful.
-    public func purchase(quantity: Int, _ callback: @escaping (_ error: Error?) -> Void) {
+    public func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
         
-        productLoadedCallback = { error in
-            
-            // Unsubscribe for notifications
-            self.paymentQueue.remove(self)
-            
-            // Call our callback.
-            callback(error)
-            
-            // Purchaser is finished. It's okay to deallocate it now.
-            ProductPurchaser.purchasers[self.product] = nil
-        }
-        
-        // Subscribe for notifications
-        self.paymentQueue.add(self)
-        
-        // Create the payment and add it to the queue
-        let payment = SKMutablePayment(product: product)
-        payment.quantity = quantity
-        self.paymentQueue.add(payment)
     }
+    
+}
+
     
     /// Purchases the SKProduct and calls the given callack when finished.
     ///
@@ -125,5 +104,36 @@ public class ProductPurchaser: NSObject, SKPaymentTransactionObserver {
         default:
             break
         }
+    }
+}
+
+public class ProductPurchaser: ProductPurchaserBase {
+    
+    /// Purchases the SKProduct and calls the given callack when finished.
+    ///
+    /// - Parameters:
+    ///   - quantity: How many of this product we want to buy
+    ///   - callback: the completion callback. If no error has passed, the purchase was successful.
+    public func purchase(quantity: Int, _ callback: @escaping (_ error: Error?) -> Void) {
+        
+        productLoadedCallback = { error in
+            
+            // Unsubscribe for notifications
+            self.paymentQueue.remove(self)
+            
+            // Call our callback.
+            callback(error)
+            
+            // Purchaser is finished. It's okay to deallocate it now.
+            ProductPurchaser.purchasers[self.product] = nil
+        }
+        
+        // Subscribe for notifications
+        self.paymentQueue.add(self)
+        
+        // Create the payment and add it to the queue
+        let payment = SKMutablePayment(product: product)
+        payment.quantity = quantity
+        self.paymentQueue.add(payment)
     }
 }

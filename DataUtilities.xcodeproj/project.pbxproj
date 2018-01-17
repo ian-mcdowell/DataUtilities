@@ -35,6 +35,7 @@
 		3CE064B8200DFA6900680549 /* PurchaseReceiptParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE064B7200DFA6900680549 /* PurchaseReceiptParser.swift */; };
 		3CE064BD200E10DE00680549 /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CE064BB200E10DE00680549 /* libcrypto.a */; };
 		3CE064BE200E10DE00680549 /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CE064BC200E10DE00680549 /* libssl.a */; };
+		B0017485200E9BA700FE7A29 /* LocalReceiptContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0017484200E9BA700FE7A29 /* LocalReceiptContainer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,9 +85,10 @@
 		3CE064A0200DD57E00680549 /* ProductPurchaser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductPurchaser.swift; sourceTree = "<group>"; };
 		3CE064A7200DE84100680549 /* PurchaseReceipt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseReceipt.swift; sourceTree = "<group>"; };
 		3CE064AF200DEF8300680549 /* ibuild_search_paths.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = ibuild_search_paths.xcconfig; path = Submodules/ibuild/ibuild_search_paths.xcconfig; sourceTree = "<group>"; };
-		3CE064B7200DFA6900680549 /* PurchaseReceiptParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseReceiptParser.swift; sourceTree = "<group>"; };
+		3CE064B7200DFA6900680549 /* PurchaseReceiptParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseReceiptParser.swift; sourceTree = "<group>"; usesTabs = 0; };
 		3CE064BB200E10DE00680549 /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcrypto.a; path = ibuild/lib/libcrypto.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		3CE064BC200E10DE00680549 /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libssl.a; path = ibuild/lib/libssl.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		B0017484200E9BA700FE7A29 /* LocalReceiptContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalReceiptContainer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +123,7 @@
 				3CE064BA200E10DD00680549 /* Frameworks */,
 			);
 			sourceTree = "<group>";
+			usesTabs = 0;
 		};
 		3C610A3C1FF8A93800863321 /* Products */ = {
 			isa = PBXGroup;
@@ -199,6 +202,7 @@
 			children = (
 				3CE064A7200DE84100680549 /* PurchaseReceipt.swift */,
 				3CE064B7200DFA6900680549 /* PurchaseReceiptParser.swift */,
+				B0017484200E9BA700FE7A29 /* LocalReceiptContainer.swift */,
 			);
 			path = "Receipt Validation";
 			sourceTree = "<group>";
@@ -350,6 +354,7 @@
 				3CE064A8200DE84100680549 /* PurchaseReceipt.swift in Sources */,
 				3C610A701FF8A95D00863321 /* Dictionary+Custom.swift in Sources */,
 				3C610A6F1FF8A95D00863321 /* Date+Custom.swift in Sources */,
+				B0017485200E9BA700FE7A29 /* LocalReceiptContainer.swift in Sources */,
 				3C610A6A1FF8A95D00863321 /* URL+Custom.swift in Sources */,
 				3C610A771FF8A95D00863321 /* Errors.swift in Sources */,
 				3C610A6E1FF8A95D00863321 /* NSDateFormatter+Custom.swift in Sources */,
