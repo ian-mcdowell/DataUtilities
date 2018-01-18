@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import StoreKit
 
 public struct InAppPurchaseReceipt {
     
@@ -20,7 +21,7 @@ public struct InAppPurchaseReceipt {
     public let transactionIdentifier: String
     
     /// For a transaction that restores a previous transaction, the transaction identifier of the original transaction. Otherwise, identical to the transaction identifier.
-    public let originalTransactionIdentifier: String
+    public let originalTransactionIdentifier: String?
     
     /// The date and time that the item was purchased.
     public let purchaseDate: Date
@@ -60,7 +61,7 @@ public struct PurchaseReceipt {
     /// It is kept in the receipt until your app finishes that transaction. After that point, it is removed from the receipt the next time the receipt is updated -
     /// for example, when the user makes another purchase or if your app explicitly refreshes the receipt.
     /// The in-app purchase receipt for a non-consumable product, auto-renewable subscription, non-renewing subscription, or free subscription remains in the receipt indefinitely.
-    public let inAppPurchaseReceipt: [InAppPurchaseReceipt]
+    public let inAppPurchaseReceipts: [InAppPurchaseReceipt]
     
     /// The version of the app that was originally purchased.
     public let originalApplicationVersion: String
@@ -74,8 +75,15 @@ public struct PurchaseReceipt {
 }
 
 public extension PurchaseReceipt {
-    static func retrieveVerifiedReceipt() throws -> PurchaseReceipt {
+    static func retrieveVerifiedReceipt() -> PurchaseReceipt? {
         let parser = PurchaseReceiptParser(bundle: Bundle.main)
-        return try parser.loadReceipt()
+        do {
+            return try parser.loadReceipt()
+        } catch {
+            print("Receipt verification error: \(error.localizedDescription)")
+            // If there was a verification error, exit the app
+            SKTerminateForInvalidReceipt()
+            return nil
+        }
     }
 }

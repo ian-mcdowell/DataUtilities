@@ -11,28 +11,16 @@ import StoreKit
 
 public class ProductPurchaserBase: NSObject, SKPaymentTransactionObserver {
     
-    // Keep a set of purchasers in memory so they don't go out of scope while in use.
-    private static var purchasers = [SKProduct: ProductPurchaserBase]()
-    
-    private var paymentQueue: SKPaymentQueue
-    
-    /// The product we are purchasing
-    private var product: SKProduct
+    fileprivate var paymentQueue: SKPaymentQueue
     
     /// The method the delegate will call when the purchase fails or succeeds.
     /// It is assumed if the error is nil, the product was successfully purchased.
-    private var productLoadedCallback: ((_ error: Error?) -> Void)?
-    
-    /// Creates a product purchaser for the given product
-    ///
-    /// - Parameter product: the product to purchase
-    public init(product: SKProduct) {
-        self.product = product
+    fileprivate var productLoadedCallback: ((_ error: Error?) -> Void)?
+
+    public override init() {
         self.paymentQueue = SKPaymentQueue.default()
         
         super.init()
-        
-        ProductPurchaser.purchasers[product] = self
     }
     
     public func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
@@ -41,13 +29,14 @@ public class ProductPurchaserBase: NSObject, SKPaymentTransactionObserver {
     
 }
 
+public class ProductPurchaseRestorer: ProductPurchaserBase {
     
     /// Purchases the SKProduct and calls the given callack when finished.
     ///
     /// - Parameters:
     ///   - quantity: How many of this product we want to buy
     ///   - callback: the completion callback. If no error has passed, the purchase was successful.
-    public func restorePurchase(_ callback: @escaping (_ error: Error?) -> Void) {
+    public func restorePurchases(_ callback: @escaping (_ error: Error?) -> Void) {
         
         productLoadedCallback = { error in
             
@@ -57,8 +46,7 @@ public class ProductPurchaserBase: NSObject, SKPaymentTransactionObserver {
             // Call our callback.
             callback(error)
             
-            // Purchaser is finished. It's okay to deallocate it now.
-            ProductPurchaser.purchasers[self.product] = nil
+            self.productLoadedCallback = nil
         }
         
         // Subscribe for notifications
@@ -68,7 +56,56 @@ public class ProductPurchaserBase: NSObject, SKPaymentTransactionObserver {
         self.paymentQueue.restoreCompletedTransactions()
     }
     
-    public func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
+
+    public func paymentQueueRestoreCompletedTransactionsFinished(_ queue: SKPaymentQueue) {
+        productLoadedCallback?(nil)
+    }
+    
+    public func paymentQueue(_ queue: SKPaymentQueue, restoreCompletedTransactionsFailedWithError error: Error) {
+        // Failure. :(
+        productLoadedCallback?(error)
+    }
+}
+
+public class ProductPurchaser: ProductPurchaserBase {
+    
+    
+    /// The product we are purchasing
+    private var product: SKProduct
+    
+    public init(product: SKProduct) {
+        self.product = product
+        super.init()
+    }
+    
+    /// Purchases the SKProduct and calls the given callack when finished.
+    ///
+    /// - Parameters:
+    ///   - quantity: How many of this product we want to buy
+    ///   - callback: the completion callback. If no error has passed, the purchase was successful.
+    public func purchase(quantity: Int, _ callback: @escaping (_ error: Error?) -> Void) {
+        
+        productLoadedCallback = { error in
+            
+            // Unsubscribe for notifications
+            self.paymentQueue.remove(self)
+            
+            // Call our callback.
+            callback(error)
+            
+            self.productLoadedCallback = nil
+        }
+        
+        // Subscribe for notifications
+        self.paymentQueue.add(self)
+        
+        // Create the payment and add it to the queue
+        let payment = SKMutablePayment(product: product)
+        payment.quantity = quantity
+        self.paymentQueue.add(payment)
+    }
+    
+    public override func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
         
         // Clear out old canceled transactions
         // Also find the current purcasing transaction
@@ -104,36 +141,5 @@ public class ProductPurchaserBase: NSObject, SKPaymentTransactionObserver {
         default:
             break
         }
-    }
-}
-
-public class ProductPurchaser: ProductPurchaserBase {
-    
-    /// Purchases the SKProduct and calls the given callack when finished.
-    ///
-    /// - Parameters:
-    ///   - quantity: How many of this product we want to buy
-    ///   - callback: the completion callback. If no error has passed, the purchase was successful.
-    public func purchase(quantity: Int, _ callback: @escaping (_ error: Error?) -> Void) {
-        
-        productLoadedCallback = { error in
-            
-            // Unsubscribe for notifications
-            self.paymentQueue.remove(self)
-            
-            // Call our callback.
-            callback(error)
-            
-            // Purchaser is finished. It's okay to deallocate it now.
-            ProductPurchaser.purchasers[self.product] = nil
-        }
-        
-        // Subscribe for notifications
-        self.paymentQueue.add(self)
-        
-        // Create the payment and add it to the queue
-        let payment = SKMutablePayment(product: product)
-        payment.quantity = quantity
-        self.paymentQueue.add(payment)
     }
 }
