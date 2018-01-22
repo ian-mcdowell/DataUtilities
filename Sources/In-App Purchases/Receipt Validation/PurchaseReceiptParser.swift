@@ -18,6 +18,8 @@ enum PurchaseReceiptParserError: LocalizedError {
     case notLoadable(error: Error)
     case emptyContents
     case notSigned
+    case appleRootNotFound
+    case invalidSignature
     case malformed
     case invalidType
     
@@ -26,13 +28,15 @@ enum PurchaseReceiptParserError: LocalizedError {
         case .notLoadable(let error): return "Unable to load receipt: \(error.localizedDescription)"
         case .emptyContents: return "The receipt was empty."
         case .notSigned: return "The receipt was not signed."
+        case .appleRootNotFound: return "Apple's root certificate not found."
+        case .invalidSignature: return "Receipt was not signed by Apple."
         case .malformed: return "The receipt's data was not in a valid format."
         case .invalidType: return "A property of the receipt was an invalid type."
         }
     }
 }
 
-struct PurchaseReceiptParser {
+class PurchaseReceiptParser {
     private typealias Container = UnsafeMutablePointer<PKCS7>
     private typealias ParsePointer = UnsafePointer<UInt8>?
     
@@ -47,7 +51,6 @@ struct PurchaseReceiptParser {
         }
         let container = try getContainer(fromData: data)
         try checkContainerIsSigned(container)
-        // TODO: Verify it's signed by apple
         return try parse(container)
     }
     
@@ -77,6 +80,24 @@ struct PurchaseReceiptParser {
     private func checkContainerIsSigned(_ container: Container) throws {
         guard OBJ_obj2nid(container.pointee.type) == NID_pkcs7_signed else {
             throw PurchaseReceiptParserError.notSigned
+        }
+        
+        guard
+            let appleRootCertificateURL = Bundle.init(for: PurchaseReceiptParser.self).url(forResource: "AppleIncRootCertificate", withExtension: "cer"),
+            let appleRootCertificateData = try? Data(contentsOf: appleRootCertificateURL)
+        else {
+            throw PurchaseReceiptParserError.appleRootNotFound
+        }
+        
+        let appleRootCertificateBIO = BIO_new(BIO_s_mem())
+        BIO_write(appleRootCertificateBIO, (appleRootCertificateData as NSData).bytes, Int32(appleRootCertificateData.count))
+        let appleRootCertificateX509 = d2i_X509_bio(appleRootCertificateBIO, nil)
+
+        let x509CertificateStore = X509_STORE_new()
+        X509_STORE_add_cert(x509CertificateStore, appleRootCertificateX509)
+        
+        if PKCS7_verify(container, nil, x509CertificateStore, nil, nil, 0) != 1 {
+            throw PurchaseReceiptParserError.invalidSignature
         }
     }
     

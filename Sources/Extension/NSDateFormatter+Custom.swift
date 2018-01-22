@@ -9,11 +9,11 @@
 import Foundation
 
 public extension DateFormatter {
-    public class func defaultFormatter() -> DateFormatter {
+    public static var defaultFormatter: DateFormatter = {
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .medium
         dateFormatter.timeStyle = .short
         dateFormatter.doesRelativeDateFormatting = true
         return dateFormatter
-    }
+    }()
 }

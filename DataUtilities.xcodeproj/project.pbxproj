@@ -35,6 +35,7 @@
 		3CE064B8200DFA6900680549 /* PurchaseReceiptParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE064B7200DFA6900680549 /* PurchaseReceiptParser.swift */; };
 		3CE064BD200E10DE00680549 /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CE064BB200E10DE00680549 /* libcrypto.a */; };
 		3CE064BE200E10DE00680549 /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CE064BC200E10DE00680549 /* libssl.a */; };
+		3CEBCA802015340500BD2DAB /* AppleIncRootCertificate.cer in Resources */ = {isa = PBXBuildFile; fileRef = 3CEBCA7F2015340500BD2DAB /* AppleIncRootCertificate.cer */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +88,7 @@
 		3CE064B7200DFA6900680549 /* PurchaseReceiptParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseReceiptParser.swift; sourceTree = "<group>"; usesTabs = 0; };
 		3CE064BB200E10DE00680549 /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcrypto.a; path = ibuild/lib/libcrypto.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		3CE064BC200E10DE00680549 /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libssl.a; path = ibuild/lib/libssl.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		3CEBCA7F2015340500BD2DAB /* AppleIncRootCertificate.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = AppleIncRootCertificate.cer; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +116,7 @@
 			isa = PBXGroup;
 			children = (
 				3CE064AF200DEF8300680549 /* ibuild_search_paths.xcconfig */,
+				3CEBCA812015340A00BD2DAB /* Resources */,
 				3C610A551FF8A95D00863321 /* Sources */,
 				3C610A3D1FF8A93800863321 /* Framework */,
 				3C610A481FF8A93800863321 /* Tests */,
@@ -153,6 +156,7 @@
 		3C610A551FF8A95D00863321 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				3CA3B434201093CD0087E1B4 /* Bonjour */,
 				3CE0649D200DD53600680549 /* In-App Purchases */,
 				3C610A561FF8A95D00863321 /* ExtensionLoader.swift */,
 				3C610A571FF8A95D00863321 /* LinkHeader.swift */,
@@ -161,7 +165,6 @@
 				3C610A621FF8A95D00863321 /* Errno.swift */,
 				3C610A631FF8A95D00863321 /* Async.swift */,
 				3C610A641FF8A95D00863321 /* Platform.swift */,
-				3C610A651FF8A95D00863321 /* BonjourBrowser.swift */,
 				3C610A661FF8A95D00863321 /* Errors.swift */,
 				3C610A671FF8A95D00863321 /* OrderedDictionary.swift */,
 				3CC0D4502007126000118AA6 /* Asserts.swift */,
@@ -183,6 +186,14 @@
 				3C85648F20062CEC0058303D /* Bundle+Custom.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		3CA3B434201093CD0087E1B4 /* Bonjour */ = {
+			isa = PBXGroup;
+			children = (
+				3C610A651FF8A95D00863321 /* BonjourBrowser.swift */,
+			);
+			path = Bonjour;
 			sourceTree = "<group>";
 		};
 		3CE0649D200DD53600680549 /* In-App Purchases */ = {
@@ -211,6 +222,14 @@
 				3CE064BC200E10DE00680549 /* libssl.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3CEBCA812015340A00BD2DAB /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				3CEBCA7F2015340500BD2DAB /* AppleIncRootCertificate.cer */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -328,6 +347,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3CEBCA802015340500BD2DAB /* AppleIncRootCertificate.cer in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

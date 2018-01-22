@@ -75,8 +75,8 @@ public struct PurchaseReceipt {
 }
 
 public extension PurchaseReceipt {
-    static func retrieveVerifiedReceipt() -> PurchaseReceipt? {
-        let parser = PurchaseReceiptParser(bundle: Bundle.main)
+    static func retrieveVerifiedReceipt(inBundle bundle: Bundle) -> PurchaseReceipt? {
+        let parser = PurchaseReceiptParser(bundle: bundle)
         do {
             return try parser.loadReceipt()
         } catch {
