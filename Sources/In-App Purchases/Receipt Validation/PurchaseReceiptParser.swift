@@ -7,10 +7,10 @@
 //
 
 import Foundation
-import ssl.pkcs7
-import ssl.objects
-import ssl.sha
-//import ssl.x509
+import openssl.pkcs7
+import openssl.objects
+import openssl.sha
+//import openssl.x509
 
 @_silgen_name("c2i_ASN1_INTEGER") func openssl_c2i_ASN1_INTEGER(_ a: UnsafeMutablePointer<ASN1_INTEGER>!, _ pp: UnsafeMutablePointer<UnsafePointer<UInt8>?>!, _ length: Int) -> UnsafeMutablePointer<ASN1_INTEGER>!
 
