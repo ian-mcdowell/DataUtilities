@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3C2F9D4721AE675700037A95 /* PurchaseReceiptParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE064B7200DFA6900680549 /* PurchaseReceiptParser.swift */; };
+		3C2F9D4821AE675A00037A95 /* PurchaseReceipt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE064A7200DE84100680549 /* PurchaseReceipt.swift */; };
 		3C610A451FF8A93800863321 /* DataUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C610A3B1FF8A93800863321 /* DataUtilities.framework */; };
 		3C610A4A1FF8A93800863321 /* DataUtilitiesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C610A491FF8A93800863321 /* DataUtilitiesTests.swift */; };
 		3C610A4C1FF8A93800863321 /* DataUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = 3C610A3E1FF8A93800863321 /* DataUtilities.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -31,8 +33,6 @@
 		3CC0D4512007126000118AA6 /* Asserts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CC0D4502007126000118AA6 /* Asserts.swift */; };
 		3CE0649F200DD56400680549 /* ProductLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE0649E200DD56400680549 /* ProductLoader.swift */; };
 		3CE064A1200DD57E00680549 /* ProductPurchaser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE064A0200DD57E00680549 /* ProductPurchaser.swift */; };
-		3CE064A8200DE84100680549 /* PurchaseReceipt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE064A7200DE84100680549 /* PurchaseReceipt.swift */; };
-		3CE064B8200DFA6900680549 /* PurchaseReceiptParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE064B7200DFA6900680549 /* PurchaseReceiptParser.swift */; };
 		3CE064BD200E10DE00680549 /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CE064BB200E10DE00680549 /* libcrypto.a */; };
 		3CE064BE200E10DE00680549 /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CE064BC200E10DE00680549 /* libssl.a */; };
 		3CEBCA802015340500BD2DAB /* AppleIncRootCertificate.cer in Resources */ = {isa = PBXBuildFile; fileRef = 3CEBCA7F2015340500BD2DAB /* AppleIncRootCertificate.cer */; };
@@ -368,7 +368,6 @@
 				3C85649020062CEC0058303D /* Bundle+Custom.swift in Sources */,
 				3C610A751FF8A95D00863321 /* Platform.swift in Sources */,
 				3CE064A1200DD57E00680549 /* ProductPurchaser.swift in Sources */,
-				3CE064A8200DE84100680549 /* PurchaseReceipt.swift in Sources */,
 				3C610A701FF8A95D00863321 /* Dictionary+Custom.swift in Sources */,
 				3C610A6F1FF8A95D00863321 /* Date+Custom.swift in Sources */,
 				3C610A6A1FF8A95D00863321 /* URL+Custom.swift in Sources */,
@@ -379,12 +378,13 @@
 				3C610A711FF8A95D00863321 /* NSError+Custom.swift in Sources */,
 				3C610A6C1FF8A95D00863321 /* String+Custom.swift in Sources */,
 				3C610A691FF8A95D00863321 /* LinkHeader.swift in Sources */,
-				3CE064B8200DFA6900680549 /* PurchaseReceiptParser.swift in Sources */,
 				3C610A781FF8A95D00863321 /* OrderedDictionary.swift in Sources */,
 				3C610A6B1FF8A95D00863321 /* AnyObject+Custom.swift in Sources */,
 				3C610A6D1FF8A95D00863321 /* Array+Custom.swift in Sources */,
+				3C2F9D4721AE675700037A95 /* PurchaseReceiptParser.swift in Sources */,
 				3C610A681FF8A95D00863321 /* ExtensionLoader.swift in Sources */,
 				3CE0649F200DD56400680549 /* ProductLoader.swift in Sources */,
+				3C2F9D4821AE675A00037A95 /* PurchaseReceipt.swift in Sources */,
 				3C610A761FF8A95D00863321 /* BonjourBrowser.swift in Sources */,
 				3C610A721FF8A95D00863321 /* Result.swift in Sources */,
 				3C610A741FF8A95D00863321 /* Async.swift in Sources */,
